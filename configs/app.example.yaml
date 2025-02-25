@@ -1,0 +1,17 @@
+debug: true
+dsn: 'mysql+aiomysql://root:12345678@localhost:3306/wh'
+log_file: './app.log'
+allowed_domains: ['*.localhost:*', 'localhost:*']
+gzip:
+  minimum_size: 5000
+  level: 5
+cache:
+  host: 'localhost'
+  port: 6379
+  db: 0
+session:
+  cookie_name: 'MINUN_WH_ID'
+  secret_key: 'supersecretkey'
+admin_credentials:
+  username: 'admin'
+  password: '12345678'
