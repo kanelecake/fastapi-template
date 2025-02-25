@@ -1,90 +1,106 @@
+[Русская версия](./README_RU.md)
+
+---
+
 # FastAPI Project Template
 
-## Описание
+## Description
 
-Этот проект является шаблоном для веб-приложений на FastAPI. Он включает в себя структуру директорий, обеспечивающую чистую архитектуру, поддержку миграций базы данных, кеширование, логирование и аутентификацию.
+This project is a template for FastAPI web applications. It includes a directory structure that ensures clean architecture, supports database migrations, caching, logging, and authentication.
 
-## Структура проекта
+## Project Structure
+
+
 ```
 project_root/
-├── app/                # Основные модули (конфигурация, база данных, кеш, CLI)
+├── app/                # Core modules (configuration, database, cache, CLI)
 │   ├── core/
 │   │   ├── __init__.py
 │   │   ├── cache.py
 │   │   ├── cli.py
 │   │   ├── config.py
 │   │   ├── database.py
-│   ├── models/         # Определение моделей базы данных
-│   ├── routers/        # Роутеры API
-│   │   ├── endpoints/  # Основные конечные точки API
-│   │   ├── schemas/    # Схемы Pydantic
+│   ├── models/         # Database model definitions
+│   ├── routers/        # API routers
+│   │   ├── endpoints/  # Main API endpoints
+│   │   ├── schemas/    # Pydantic schemas
 │   │   │   ├── __init__.py
 │   │   │   ├── v1.py
-│   ├── services/    # Логика бизнес-процессов
-│   ├── utils/       # Утилитарные функции (логирование, кеширование, шифрование и т.д.)
+│   ├── services/       # Business logic
+│   ├── utils/          # Utility functions (logging, caching, encryption, etc.)
 │   │   ├── __init__.py
 │   │   ├── formatter.py
 │   │   ├── hashing.py
 │   │   ├── logging.py
 │   │   ├── response.py
 │   │   ├── sessions.py
-│   ├── main.py      # Точка входа в приложение
-├── configs/         # Конфигурационные файлы
-├── data/            # Директория для хранения данных (если требуется)
-├── migrations/      # Миграции базы данных (Alembic)
-├── .gitignore       
-├── alembic.ini      # Конфигурация Alembic
-├── README.md        # Описание проекта
-├── requirements.txt # Зависимости проекта
+│   ├── main.py         # Application entry point
+├── configs/            # Configuration files
+├── data/               # Directory for storing data (if needed)
+├── migrations/         # Database migrations (Alembic)
+├── .gitignore          # Git ignored files
+├── alembic.ini         # Alembic configuration
+├── README.md           # Project description
+├── requirements.txt    # Project dependencies
 ```
 
-## Установка
-1. Клонируйте репозиторий:
+
+## Installation
+
+1. Clone the repository:
    ```bash
-   git clone <URL_репозитория>
-   cd <имя_проекта>
+   git clone <repository_URL>
+   cd <project_name>
    ```
 
-2. Создайте и активируйте виртуальное окружение:
+
+2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # Для macOS и Linux
-   venv\Scripts\activate     # Для Windows
+   source venv/bin/activate  # For macOS and Linux
+   venv\Scripts\activate     # For Windows
    ```
 
-3. Установите зависимости:
+
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Конфигурация
 
-Отредактируйте файл `configs/app.yaml` (стереть из названия example)
-согласно данным используемым в вашем проекте.
+## Configure project
 
-## Запуск проекта
-1. Запустите сервер FastAPI:
+Edit file `configs/app.yaml` (remove an example postfix example)
+and fill by your db and cache credentials.
+
+## Running the Project
+
+1. Start the FastAPI server:
    ```bash
    uvicorn app.main:app --reload
    ```
-   Сервер будет доступен по адресу: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-2. Откройте документацию API:
+   The server will be available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+2. Open the API documentation:
    - Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
    - ReDoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-## Миграции базы данных
-Проект использует Alembic для управления миграциями базы данных.
-1. Создайте новую миграцию:
+## Database Migrations
+
+The project uses Alembic for managing database migrations.
+
+1. Create a new migration:
    ```bash
    alembic revision --autogenerate -m "initial migration"
    ```
-2. Примените миграции:
+
+
+2. Apply migrations:
    ```bash
    alembic upgrade head
    ```
 
+## License
 
-## Лицензия
-Этот проект распространяется под лицензией MIT.
-
+This project is distributed under the MIT License.
